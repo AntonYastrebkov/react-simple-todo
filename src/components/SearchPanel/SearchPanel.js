@@ -1,8 +1,10 @@
-import React from 'react';
+import React, { Component } from 'react';
 import './SearchPanel.css'
 
-const SearchPanel = () => {
+export default class SearchPanel extends Component {
   
+  render() {
+    const { onFilterChange } = this.props;
     const placeholder = "search here";
     const searchStyle = {
       fontSize: '25px'
@@ -11,8 +13,8 @@ const SearchPanel = () => {
       <input type="text"
         className="form-control search-panel"
         style = {searchStyle}
-        placeholder = {placeholder} />
+        placeholder = {placeholder} 
+        onChange={ (event) => onFilterChange(event.target.value) }/>
     );
+  };
 };
-
-export default SearchPanel;
